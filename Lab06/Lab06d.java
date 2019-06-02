@@ -1,0 +1,83 @@
+import java.util.Scanner;
+/**
+ * prints even numbers in a certain digit value in a certain order.
+ * @author Fatih Sevban Uyan?k
+ * @version 18.04.2018
+ */
+public class Lab06d
+{
+   public static void main(String[] args)
+   {
+      Scanner scanner = new Scanner( System.in );
+
+      // constants
+      
+      // variables
+      int digitValue;
+      
+      // program code
+      
+      // heading
+      System.out.println( "\n***PRINTING OUT ORDERED EVEN NUMBERS***" );
+      System.out.println( "**************************************\n"  );
+      
+      // requesting and reading a string.
+      System.out.print( "Please enter a digit value : " );
+      digitValue = scanner.nextInt();
+      
+      // calling method
+      System.out.println();
+      enumerate( digitValue );
+   }
+   
+   /**
+    * takes the digit number and prints out even numbers in order.
+    * @param digit is the digit number that is passed
+    */
+   private static void enumerate( int digit )
+   {
+      int maximumNumber = (int) Math.pow( 10 , digit ) - 1;
+      int minimumNumber = (int) Math.pow( 10 , digit -1  );
+      enumerate( maximumNumber , minimumNumber );
+   }
+   
+   /**
+    * prints out the required numbers.
+    * @param maximumNumber is the max number that needs to be checked.
+    * @param actualNumber is the number that will be checked initially.
+    */
+   private static void enumerate ( int maximumNumber , int actualNumber )
+   {
+      if ( actualNumber > maximumNumber )
+         return;
+      
+      if ( isLowerToUpper( actualNumber ) )
+         System.out.println(actualNumber);
+      
+      actualNumber = actualNumber + 2;
+      enumerate( maximumNumber , actualNumber );
+   }
+   
+   /**
+    * checks whether the number is in order.
+    * @param number is the passed number.
+    * @return the boolean depending on the result.
+    */
+   private static boolean isLowerToUpper( int number )
+   {
+      String numberStringForm = String.valueOf(number);
+      
+      if ( numberStringForm.length() != 1 )
+      {
+         int firstIndex  = Integer.parseInt( numberStringForm.charAt(0) + "" );
+         int secondIndex = Integer.parseInt( numberStringForm.charAt(1) + "" );
+         
+         if ( firstIndex >= secondIndex )
+            return false;
+      }
+      else { return true; }
+      
+      return isLowerToUpper( Integer.parseInt( numberStringForm.substring(1) + "" ) );
+   }
+   
+}

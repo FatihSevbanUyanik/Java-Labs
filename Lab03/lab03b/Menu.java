@@ -1,0 +1,118 @@
+import java.util.Scanner;
+/**
+ * Represents a menu and uses the methods of IntBag class.
+ * @author Fatih Sevban Uyanýk
+ * @version 14,03,2018
+ */
+public class Menu
+{
+    public static void main( String[] args )
+    {
+        Scanner scanner = new Scanner( System.in );
+
+        // constants
+
+        // variables
+        int testValue;
+        int selection;
+        int capacity;
+        IntBag intBag;
+        String testValueRepresantation;
+
+        // program code
+
+        // constructing IntBag object and assigning a value to test value.
+        testValue = 0;
+        intBag = new IntBag();
+        testValueRepresantation = "";
+
+        // looping : operations
+        do
+        {
+            // showing menu
+            System.out.println();
+            System.out.println( "*******MENU*******" );
+            System.out.println( "1. Create a new empty collection with a specified maximum capacity (any previous values are lost!) " );
+            System.out.println( "2. Read a set of positive values into the collection (use a negative value to indicate all the values have been entered.)" );
+            System.out.println( "3. Print the collection of values." );
+            System.out.println( "4. Add a value to the collection of values at a specified location" );
+            System.out.println( "5. Remove the value at a specified location from the collection of values" );
+            System.out.println( "6. Read a single test value." );
+            System.out.println( "7. Compute the set of locations of the test value within the collection." );
+            System.out.println( "8. Print the set of locations." );
+            System.out.println( "9. Quit the program." );
+            System.out.println();
+
+            // requiring and reading a selection from the user.
+            System.out.print( "Please make a selection : " );
+            selection = scanner.nextInt();
+            System.out.println();
+
+            // creating a new empty collection with a specified maximum capacity.
+            if ( selection == 1 )
+            {
+                System.out.print( "Please type the capacity of the collection : " );
+                capacity = scanner.nextInt();
+                intBag = new IntBag( capacity );
+            }
+
+            // reading a set of positive values into the collection.
+            else if ( selection == 2 )
+            {
+                System.out.print( "Please type set of positive values : " );
+                int numbers = scanner.nextInt();
+
+                while ( numbers > 0 )
+                {
+                    intBag.add(numbers);
+                    numbers = scanner.nextInt();
+                }
+            }
+
+            // printing the collection of values.
+            else if ( selection == 3 )
+                System.out.println( intBag.toString() );
+
+                // adding a value to the collection of values at a specified location.
+            else if ( selection == 4 )
+            {
+                System.out.print( "Please enter a value that will be added to the collection : " );
+                int number = scanner.nextInt();
+
+                System.out.print( "Please enter the index of the number that will be added to the collection : " );
+                int index = scanner.nextInt();
+
+                intBag.add(number, index);
+            }
+
+            // removing the value at a specified location from the collection of values.
+            else if ( selection == 5 )
+            {
+                System.out.print( "Please enter the index of the number that will be removed from the collection : " );
+                int index = scanner.nextInt();
+                intBag.remove(index);
+            }
+
+            // reading a single test value.
+            else if ( selection == 6 )
+            {
+                System.out.print( "Please enter a test value : " );
+                testValue = scanner.nextInt();
+            }
+
+            // computing the set of locations of the test value within the collection.
+            else if ( selection == 7 )
+            {
+                intBag.findAll( testValue );
+                testValueRepresantation = "Indexes : " + intBag.findAll(testValue) ;
+            }
+
+            // printing the set of locations.
+            else if ( selection == 8 )
+                System.out.println( testValueRepresantation );
+
+        } while ( selection != 9 );
+
+    }
+
+}

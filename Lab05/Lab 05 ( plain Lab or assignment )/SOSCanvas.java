@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.awt.*;
+import cs101.sosgame.SOS;
+/**
+ * Draws the SOS game
+ * @author Fatih Sevban Uyanik
+ * @version 04,04,2018
+ */
+public class SOSCanvas extends JPanel
+{
+    // constants
+    private static final int CELL_SIDE = 80;
+
+    // properties
+    private SOS sosGame;
+
+    // constructor
+    public SOSCanvas( int dimension )
+    {
+        sosGame = new SOS( dimension );
+    }
+
+    /**
+     * draws the game and put the cell contents.
+     * @param g graphics object that draws contents.
+     */
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+
+        for ( int i = 0 ; i < sosGame.getDimension() ; i++ )
+        {
+            for ( int j = 0 ; j < sosGame.getDimension() ; j++ )
+            {
+                // drawing rectangle
+                g.drawRect(
+                        i * CELL_SIDE + CELL_SIDE,
+                        j * CELL_SIDE + CELL_SIDE,
+                        CELL_SIDE , CELL_SIDE
+                );
+
+                // putting cell contents
+                g.drawString(
+                        sosGame.getCellContents( j , i ) + "",
+                        ( i * CELL_SIDE + CELL_SIDE / 2 ) + CELL_SIDE,
+                        ( j * CELL_SIDE + CELL_SIDE / 2 ) + CELL_SIDE
+                );
+            }
+        }
+    }
+
+    /**
+     * gets the Cell
+     * @return
+     */
+    public int getCellSide()
+    {
+        return CELL_SIDE;
+    }
+
+    /**
+     * gets the SOS game
+     * @return SOS game.
+     */
+    public SOS getSosGame()
+    {
+        return sosGame;
+    }
+
+}

@@ -1,0 +1,13 @@
+public class Test
+{
+   public static void main( String[] args )
+   {
+      
+      HTMLFilteredReader htmlFilteredReader = new HTMLFilteredReader ( "view-source:https://www.turkiye.gov.tr/doviz-kurlari" );
+      
+      System.out.println( htmlFilteredReader.getUnfilteredPageContents() );
+         
+   }
+   
+   
+}

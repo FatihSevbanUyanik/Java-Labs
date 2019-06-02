@@ -1,0 +1,60 @@
+import java.util.Scanner;
+/**
+ * counts the number of occurrences in a string.
+ * @author Fatih Sevban Uyan?k
+ * @version 18.04.2018
+ */
+public class Lab06a
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner( System.in );
+
+        // constants
+
+        // variables
+        String      string;
+        Character   letter;
+        int namOfOccurrence;
+
+        // program code
+
+        // heading
+        System.out.println( "***COUNTING THE NUMBER OF OCCURRENCES IN A STRING***"   );
+        System.out.println( "****************************************************\n" );
+
+        // requesting and reading a string.
+        System.out.print( "Please enter a string : " );
+        string = scanner.nextLine();
+
+        // requesting and reading a letter.
+        System.out.print( "Please enter a letter : " );
+        letter = scanner.nextLine().charAt(0);
+
+        // calling method
+        namOfOccurrence = countNumberOfOccurrences( string , letter );
+
+        // printing out result
+        System.out.println( "\nResult : " + namOfOccurrence );
+    }
+
+    /**
+     * counts the number of occurrences in a string.
+     * @param string is the string that will be checked.
+     * @param letter is the letter that occurs in string.
+     * @return the number of the occurrences.
+     */
+    private static int countNumberOfOccurrences( String string , char letter )
+    {
+        if ( string.length() == 0 )
+            return 0;
+
+        int count = 0;
+
+        if ( string.charAt(0) == letter )
+            count++;
+
+        return count + countNumberOfOccurrences( string.substring(1) , letter );
+    }
+
+}

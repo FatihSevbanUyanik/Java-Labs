@@ -1,0 +1,25 @@
+import cs1.SimpleURLReader;
+
+public class SimpleURLReaderTest extends SimpleURLReader
+{
+ // constructor
+ public SimpleURLReaderTest( String url ) 
+ {
+  super( url );
+ }
+
+ public static void main(String[] args)
+ {
+  // creating a SimpleURLReaderTest object and giving a URL to its constructor.
+  SimpleURLReaderTest readerTest = new SimpleURLReaderTest( "http://www.cs.bilkent.edu.tr/%7Edavid/housman.txt" );
+  
+  // printing out the page contents
+  System.out.println( "*************PAGE CONTENTS*************" );
+  System.out.println( readerTest.getPageContents() );
+  
+  // printing out the number of lines.
+  System.out.println( "*************NUMBER OF LINES*************" );
+  System.out.println( readerTest.getLineCount() );
+ }
+
+}

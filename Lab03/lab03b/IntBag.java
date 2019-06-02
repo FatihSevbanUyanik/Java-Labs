@@ -1,0 +1,205 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+/**
+ * Collects a set of values.
+ * @author Fatih Sevban Uyanik
+ * @version 14,03,2018
+ */
+public class IntBag
+{
+   // properties
+   int[] bag;
+   int valid;
+   
+    // constructors
+   public IntBag()
+   {
+      bag = new int[ 100 ];
+      valid = 0;
+   }
+   
+   public IntBag( int max )
+   {
+      bag = new int[ max ];
+      valid = 0;
+   }
+   
+   
+   // methods
+   
+   /**
+    * adds a new number to the bag array.
+    * @param number is the number that will be added.
+    */
+   public void add( int number )
+    {
+      if ( valid < bag.length )
+      {
+         bag[ valid ] = number;
+         valid++;
+      }
+      else
+         System.out.println( "Number " + number + " couldn't be added because array is full." );
+   }
+   
+   /**
+    * adds a new number to the bag array into a particular index.
+    * @param number is the number that will be added.
+    */
+   public void add( int number , int index )
+    {
+      if ( valid < bag.length && index < valid && index >= 0 )
+      {
+         for ( int i = valid ; i > index ; i-- )
+            bag[ i ] = bag[ i - 1 ];
+         
+         bag[ index ] = number;
+         valid++;
+      }
+      
+      else if ( valid < bag.length && index >= valid && index >= 0 )
+      {
+         bag[ index ] = number;
+         valid = index + 1;
+      }
+      
+      else
+         System.out.println( "Number couldn't be added because array is full or index is wrong." );
+   }
+   
+    /**
+     * removes a number from the array in a specific location.
+     * @param index is the index that will be removed.
+     */
+   public void remove( int index )
+   {
+      if ( index < valid && index >= 0 )
+      {
+         for ( int i = index ; i < valid - 1 ; i++ )
+                bag[ i ] = bag[ i + 1 ];
+         
+         bag[ valid - 1 ] = 0;
+         valid--;
+      }
+      
+      else
+         System.out.println( "Number couldn't be added because of wrong index." );
+   }
+
+   /**
+    * checks whether the collection contains the passed value.
+    * @param number is the number that will be checked.
+    * @return the result in terms of boolean.
+    */
+   public boolean contains( int number )
+    {
+      for ( int i = 0 ; i < valid ; i++ )
+         if ( number == bag[ i ] )
+         return true;
+      
+      return false;
+   }
+
+   /**
+    * represents the collection.
+    * @return the string that represents the collection.
+    */
+    public String toString()
+    {
+       String represantationOfCollection = "Collection : ";
+
+       for ( int i = 0 ; i < valid ; i++ )
+          represantationOfCollection += bag[ i ] + "  ";
+       
+       return represantationOfCollection;
+    }
+    
+    /**
+     * shows the size of the array
+     * @return the size number of the array.
+     */
+    public int size()
+    {
+       return valid;
+    }
+    
+    /**
+     * gets an available number from the array from the desired index.
+     * @param index is the index of the number that will be got.
+     * @return the desired number.
+     */
+    public int get( int index )
+    {
+       if ( index < valid )
+          return bag[ index ];
+       
+       return (Integer) null;
+    }
+    
+    /**
+     * returns the set of index numbers of the passed number in the collection.
+     * @param number is the number whose indexes will be returned.
+     * @return the set of index numbers of the passed number.
+     */
+    public ArrayList<Integer> findAll( int number )
+    {
+       ArrayList<Integer> indexes = new ArrayList<>();
+       
+       for ( int i = 0 ; i < valid ; i++ )
+          if( number == bag[ i ] )
+                indexes.add( i  );
+       
+       return indexes;
+    }
+    
+    /**
+     * creates an iterator instance.
+     * @return the interface type of the class.
+     */
+    public Iterator iterator()
+    {
+       IntBagIterator intBagIterator = new IntBagIterator( this );
+       return intBagIterator;
+    }
+    
+    
+    private class IntBagIterator implements Iterator
+    {
+       // properties
+       IntBag aBag;
+       int index;
+
+       // constructors
+       public IntBagIterator(IntBag aBag) 
+       {
+          this.aBag = aBag;
+          index = 0;
+       }
+       
+       // methods
+       
+       /**
+        * checks whether there is an object to iterate.
+        * @return the boolean type of the result.
+        */
+       @Override
+       public boolean hasNext()
+       {
+          return index < aBag.size();
+       }
+       
+       /**
+        * iterates the next object.
+        * @return the next object in the sequence.
+        */
+       @Override
+       public Object next()
+       {
+          Integer integer = aBag.get( index );
+          index++;
+          return integer;
+       }
+       
+    }
+    
+}

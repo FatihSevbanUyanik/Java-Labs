@@ -1,0 +1,28 @@
+public class Stack extends List
+{
+    // properties
+
+    // constructor
+    public Stack() { super(); }
+
+    // methods
+
+    /**
+     * adds an item to the top of the stack.
+     * @param item is the item to be added.
+     */
+    public void push( String item ) { addToHead( item ); }
+
+    /**
+     * removes an item of the stack.
+     * @return the removed item.
+     */
+    public String pop() { return removeFromHead(); }
+
+    /**
+     * checks whether the stack is empty or not.
+     * @return the boolean type accordingly.
+     */
+    public boolean isEmpty() { return super.isEmpty(); }
+
+}

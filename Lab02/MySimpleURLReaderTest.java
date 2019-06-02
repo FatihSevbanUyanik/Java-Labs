@@ -1,0 +1,30 @@
+/**
+ * Tests MySimpleURLReader class and uses its methods.
+ * @author Fatih Sevban Uyanýk
+ * @version 28.02.2018
+ */ 
+public class MySimpleURLReaderTest 
+{
+   public static void main(String[] args) 
+   {
+      // creating a MySimpleURLReaderTest object and giving a URL to its constructor.
+      MySimpleURLReader mySimpleURLReader = new MySimpleURLReader( "http://www.cs.bilkent.edu.tr/%7Edavid/housman.txt" );
+      
+      // printing out the URL
+      System.out.println( "*************URL*************" );
+      System.out.println( mySimpleURLReader.getURL() + "\n" );
+      
+      // printing out the file name
+      System.out.println( "*************FILE NAME*************");
+      System.out.println( mySimpleURLReader.getName() + "\n" );
+      
+      // printing out the page contents
+      System.out.println( "*************PAGE CONTENTS*************" );
+      System.out.println( mySimpleURLReader.getPageContents() );
+      
+      // printing out the number of lines.
+      System.out.println( "*************NUMBER OF LINES*************" );
+      System.out.println( mySimpleURLReader.getLineCount() );
+   }
+   
+}

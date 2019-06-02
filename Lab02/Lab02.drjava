@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" main="" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="Test.java" package="" timestamp="28-Feb-2018 12:01:34">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MySimpleURLReaderTest.java" package="" timestamp="28-Feb-2018 09:02:39">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="SuperHTMLFilteredReader.java" package="" timestamp="28-Feb-2018 09:02:39">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MenuDrivenProgram.java" package="" timestamp="28-Feb-2018 09:38:32">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="HTMLFilteredReaderTest.java" package="" timestamp="28-Feb-2018 09:42:11">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="SuperHTMLFilteredReaderTest.java" package="" timestamp="28-Feb-2018 10:06:09">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="HTMLFilteredReader.java" package="" timestamp="28-Feb-2018 10:25:48">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="SimpleURLReaderTest.java" package="" timestamp="28-Feb-2018 10:42:48">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MySimpleURLReader.java" package="" timestamp="28-Feb-2018 10:46:07">
+        <select from="70" to="70"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath>
+      <file absolute="false" name="cs1.jar"/>
+    </classpath>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

@@ -1,0 +1,6 @@
+public interface Selectable
+{
+    boolean getSelected();
+    void setSelected( boolean b );
+    Shape contains( double x, double y);
+}
